@@ -10,12 +10,20 @@ namespace MsiShopFinal.Controllers
     public class CategoryController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-        // GET: Category
+        //GET: Category
         public ActionResult Index()
         {
             var myModel = db.Category.ToList();
             return View(myModel);
         }
+
+        //public ViewResult Index()
+        //{
+        //    if (User.IsInRole("CanManageMovies"))
+        //        return View("List");
+
+        //    return View("ReadOnlyList");
+        //}
 
         // GET: Category/Details/5
         public ActionResult Details(int id)

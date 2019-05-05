@@ -11,6 +11,7 @@ namespace MsiShopFinal.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         // GET: Reseller
+        [Authorize]
         public ActionResult Index()
         {
             var myModel = db.Reseller.ToList();
