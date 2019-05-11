@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace MsiShopFinal.Controllers
 {
+    [Authorize]
     public class SpecialOfferController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -14,7 +15,13 @@ namespace MsiShopFinal.Controllers
         public ActionResult Index()
         {
             var myModel = db.SpecialOffer.ToList();
-            return View(myModel);
+
+
+            if (User.IsInRole("CanManageProducts"))
+            {
+                return View("Index", myModel);
+            }
+            return View("ReadOnlyList", myModel);
         }
 
         // GET: SpecialOffer/Details/5

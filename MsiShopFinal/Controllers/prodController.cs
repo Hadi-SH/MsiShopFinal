@@ -8,58 +8,54 @@ using System.Web.Mvc;
 namespace MsiShopFinal.Controllers
 {
     [Authorize]
-    public class TitleController : Controller
+    public class prodController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-
-        // GET: Title
+        // GET: prod
         public ActionResult Index()
         {
+            var myModel = db.Prod.ToList();
+
+            if (User.IsInRole("CanManageProducts"))
             {
-                var myModel = db.Title.ToList();
-
-
-                if (User.IsInRole("CanManageProducts"))
-                {
-                    return View("Index", myModel);
-                }
-                return View("Prvlgs", myModel);
+                return View("CustIndex", myModel);
             }
+            return View("ResIndex", myModel);
         }
 
-        // GET: Title/Details/5
+        // GET: prod/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: Title/Create
+        // GET: prod/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Title/Create
+        // POST: prod/Create
         [HttpPost]
-        public ActionResult Create(Titles Title)
+        public ActionResult Create(Prods Prod)
         {
             if (ModelState.IsValid)
             {
-                db.Title.Add(Title);
+                db.Prod.Add(Prod);
                 db.SaveChanges();
 
-                return RedirectToAction("Index", "Title");
+                return RedirectToAction("Index", "Prod");
             }
             else return View();
         }
 
-        // GET: Title/Edit/5
+        // GET: prod/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Title/Edit/5
+        // POST: prod/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -75,13 +71,13 @@ namespace MsiShopFinal.Controllers
             }
         }
 
-        // GET: Title/Delete/5
+        // GET: prod/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Title/Delete/5
+        // POST: prod/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

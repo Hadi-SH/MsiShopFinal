@@ -174,6 +174,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\NewController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\prodController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ResellerController.cs" />
     <Compile Include="Controllers\SpecialOfferController.cs" />
@@ -249,8 +250,25 @@
     <Compile Include="Migrations\201905051935057_SeedUsers.Designer.cs">
       <DependentUpon>201905051935057_SeedUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905071432370_prod1.cs" />
+    <Compile Include="Migrations\201905071432370_prod1.Designer.cs">
+      <DependentUpon>201905071432370_prod1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905091059585_products-2.cs" />
+    <Compile Include="Migrations\201905091059585_products-2.Designer.cs">
+      <DependentUpon>201905091059585_products-2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905091101594_products-2-2.cs" />
+    <Compile Include="Migrations\201905091101594_products-2-2.Designer.cs">
+      <DependentUpon>201905091101594_products-2-2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905112220595_PSW4CustANDRes.cs" />
+    <Compile Include="Migrations\201905112220595_PSW4CustANDRes.Designer.cs">
+      <DependentUpon>201905112220595_PSW4CustANDRes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Prods.cs" />
     <Compile Include="Models\Customers.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -335,11 +353,17 @@
     <Content Include="Views\Title\Index.cshtml" />
     <Content Include="Views\Title\Create.cshtml" />
     <Content Include="Views\Category\ReadOnlyList.cshtml" />
+    <Content Include="Views\prod\Index.cshtml" />
+    <Content Include="Views\prod\Create.cshtml" />
+    <Content Include="Views\prod\ResIndex.cshtml" />
+    <Content Include="Views\prod\CustIndex.cshtml" />
+    <Content Include="Views\Reseller\ReadOnlyList.cshtml" />
+    <Content Include="Views\SpecialOffer\ReadOnlyList.cshtml" />
+    <Content Include="Views\Title\Prvlgs.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\News\" />
-    <Folder Include="Views\Product\" />
+    <Folder Include="User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -405,6 +429,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905051935057_SeedUsers.resx">
       <DependentUpon>201905051935057_SeedUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905071432370_prod1.resx">
+      <DependentUpon>201905071432370_prod1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905091059585_products-2.resx">
+      <DependentUpon>201905091059585_products-2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905091101594_products-2-2.resx">
+      <DependentUpon>201905091101594_products-2-2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905112220595_PSW4CustANDRes.resx">
+      <DependentUpon>201905112220595_PSW4CustANDRes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

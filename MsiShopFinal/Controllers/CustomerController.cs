@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace MsiShopFinal.Controllers
 {
+    [Authorize]
     public class CustomerController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -14,7 +15,13 @@ namespace MsiShopFinal.Controllers
         public ActionResult Index()
         {
             var myModel = db.Customer.ToList();
-            return View(myModel);
+
+
+            if (User.IsInRole("CanManageProducts"))
+            {
+                return View("Index",myModel);
+            }
+            return View("Create");
         }
 
         // GET: Customer/Details/5

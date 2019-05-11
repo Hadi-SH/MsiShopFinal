@@ -29,5 +29,7 @@ namespace MsiShopFinal.Models
         [Required]
         [Display(Name = "Store Email")]
         public string StoreEmail { get; set; }
+        [Required]
+        public string Password { get; set; }
     }
 }

@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace MsiShopFinal.Controllers
 {
+    [Authorize]
     public class OrderController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

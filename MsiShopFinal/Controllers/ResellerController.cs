@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace MsiShopFinal.Controllers
 {
+    [Authorize]
     public class ResellerController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -15,7 +16,12 @@ namespace MsiShopFinal.Controllers
         public ActionResult Index()
         {
             var myModel = db.Reseller.ToList();
-            return View(myModel);
+
+            if (User.IsInRole("CanManageProducts"))
+            {
+                return View("Index", myModel);
+            }
+            return View("ReadOnlyList", myModel);
         }
 
         // GET: Reseller/Details/5
