@@ -28,7 +28,7 @@ namespace MsiShopFinal.Controllers
             {
                 return View("Index",myModel);
             }
-            return View("ReadOnlyList",myModel);
+            return View("Prvlgs",myModel);
         }
 
         // GET: Category/Details/5

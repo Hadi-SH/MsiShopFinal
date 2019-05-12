@@ -352,7 +352,6 @@
     <Content Include="Views\SpecialOffer\Create.cshtml" />
     <Content Include="Views\Title\Index.cshtml" />
     <Content Include="Views\Title\Create.cshtml" />
-    <Content Include="Views\Category\ReadOnlyList.cshtml" />
     <Content Include="Views\prod\Index.cshtml" />
     <Content Include="Views\prod\Create.cshtml" />
     <Content Include="Views\prod\ResIndex.cshtml" />
@@ -360,6 +359,8 @@
     <Content Include="Views\Reseller\ReadOnlyList.cshtml" />
     <Content Include="Views\SpecialOffer\ReadOnlyList.cshtml" />
     <Content Include="Views\Title\Prvlgs.cshtml" />
+    <Content Include="Views\Category\Prvlgs.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
