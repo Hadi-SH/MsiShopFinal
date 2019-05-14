@@ -10,6 +10,12 @@ namespace MsiShopFinal.Models
     {
         public int Id { get; set; }
         [Required]
+        [Display(Name = "Title")]
+        public string NTitle { get; set; }
+        [Required]
+        [Display(Name = "Data")]
         public string NData { get; set; }
+        [Required]
+        public DateTime Date { get; set; }
     }
 }

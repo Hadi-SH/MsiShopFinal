@@ -266,6 +266,22 @@
     <Compile Include="Migrations\201905112220595_PSW4CustANDRes.Designer.cs">
       <DependentUpon>201905112220595_PSW4CustANDRes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905141401405_test.cs" />
+    <Compile Include="Migrations\201905141401405_test.Designer.cs">
+      <DependentUpon>201905141401405_test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905141424569_test2.cs" />
+    <Compile Include="Migrations\201905141424569_test2.Designer.cs">
+      <DependentUpon>201905141424569_test2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905141550499_fixingpriceProd.cs" />
+    <Compile Include="Migrations\201905141550499_fixingpriceProd.Designer.cs">
+      <DependentUpon>201905141550499_fixingpriceProd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905141946150_FixingSOandNews.cs" />
+    <Compile Include="Migrations\201905141946150_FixingSOandNews.Designer.cs">
+      <DependentUpon>201905141946150_FixingSOandNews.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Prods.cs" />
@@ -342,14 +358,10 @@
     <Content Include="Views\Customer\Index.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Category\Create.cshtml" />
-    <Content Include="Views\New\Index.cshtml" />
-    <Content Include="Views\New\Create.cshtml" />
     <Content Include="Views\Order\Index.cshtml" />
     <Content Include="Views\Order\Create.cshtml" />
     <Content Include="Views\Reseller\Index.cshtml" />
     <Content Include="Views\Reseller\Create.cshtml" />
-    <Content Include="Views\SpecialOffer\Index.cshtml" />
-    <Content Include="Views\SpecialOffer\Create.cshtml" />
     <Content Include="Views\Title\Index.cshtml" />
     <Content Include="Views\Title\Create.cshtml" />
     <Content Include="Views\prod\Index.cshtml" />
@@ -357,13 +369,19 @@
     <Content Include="Views\prod\ResIndex.cshtml" />
     <Content Include="Views\prod\CustIndex.cshtml" />
     <Content Include="Views\Reseller\ReadOnlyList.cshtml" />
-    <Content Include="Views\SpecialOffer\ReadOnlyList.cshtml" />
     <Content Include="Views\Title\Prvlgs.cshtml" />
     <Content Include="Views\Category\Prvlgs.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\New\Index.cshtml" />
+    <Content Include="Views\New\Create.cshtml" />
+    <Content Include="Views\SpecialOffer\Index.cshtml" />
+    <Content Include="Views\SpecialOffer\Create.cshtml" />
+    <Content Include="Views\New\AdminIndex.cshtml" />
+    <Content Include="Views\SpecialOffer\ReadOnlyList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\" />
     <Folder Include="User\" />
   </ItemGroup>
   <ItemGroup>
@@ -442,6 +460,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905112220595_PSW4CustANDRes.resx">
       <DependentUpon>201905112220595_PSW4CustANDRes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905141401405_test.resx">
+      <DependentUpon>201905141401405_test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905141424569_test2.resx">
+      <DependentUpon>201905141424569_test2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905141550499_fixingpriceProd.resx">
+      <DependentUpon>201905141550499_fixingpriceProd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905141946150_FixingSOandNews.resx">
+      <DependentUpon>201905141946150_FixingSOandNews.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -14,7 +14,8 @@ namespace MsiShopFinal.Models
         [Required]
         public string Name { get; set; }
         [Required]
-        public int Price { get; set; }
+        [DataType(DataType.Currency)]
+        public decimal Price { get; set; }
         [Required]
         public string Specifications { get; set; }
         [Required]

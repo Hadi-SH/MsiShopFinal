@@ -16,11 +16,11 @@ namespace MsiShopFinal.Controllers
         {
             var myModel = db.Prod.ToList();
 
-            if (User.IsInRole("CanManageProducts"))
+            if (User.IsInRole("Reseller"))
             {
-                return View("CustIndex", myModel);
+                return View("ResIndex", myModel);
             }
-            return View("ResIndex", myModel);
+            return View("CustIndex", myModel);
         }
 
         // GET: prod/Details/5
@@ -39,13 +39,13 @@ namespace MsiShopFinal.Controllers
         [HttpPost]
         public ActionResult Create(Prods Prod)
         {
-            if (ModelState.IsValid)
-            {
-                db.Prod.Add(Prod);
-                db.SaveChanges();
+                if (ModelState.IsValid)
+                {
+                    db.Prod.Add(Prod);
+                    db.SaveChanges();
 
-                return RedirectToAction("Index", "Prod");
-            }
+                    return RedirectToAction("Index", "Prod");
+                }
             else return View();
         }
 

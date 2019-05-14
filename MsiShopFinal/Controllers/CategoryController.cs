@@ -8,7 +8,6 @@ using System.Web.Mvc;
 namespace MsiShopFinal.Controllers
 {
     [Authorize]
-
     public class CategoryController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -60,6 +59,10 @@ namespace MsiShopFinal.Controllers
         // GET: Category/Edit/5
         public ActionResult Edit(int id)
         {
+            //var category = db.Category.SingleOrDefault(c => c.Id == id);
+
+            //if (category == null)
+            //    return HttpNotFound();
             return View();
         }
 

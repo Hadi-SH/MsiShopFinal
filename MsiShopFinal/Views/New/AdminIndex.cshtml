@@ -1,10 +1,10 @@
-﻿@model IEnumerable<MsiShopFinal.Models.SpecialOffers>
+﻿@model IEnumerable<MsiShopFinal.Models.News>
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Index";
 }
 
-<h2>Create</h2>
+<h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -12,7 +12,10 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.SOData)
+            @Html.DisplayNameFor(model => model.NTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NData)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Date)
@@ -23,7 +26,10 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.SOData)
+            @Html.DisplayFor(modelItem => item.NTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NData)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Date)

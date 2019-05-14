@@ -15,6 +15,7 @@ namespace MsiShopFinal.Controllers
         public ActionResult Index()
         {
             var myModel = db.Customer.ToList();
+            
 
 
             if (User.IsInRole("CanManageProducts"))

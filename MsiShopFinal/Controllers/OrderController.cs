@@ -1,4 +1,5 @@
-﻿using MsiShopFinal.Models;
+﻿using Microsoft.AspNet.Identity;
+using MsiShopFinal.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,10 @@ namespace MsiShopFinal.Controllers
         {
             var myModel = db.Order.ToList();
             return View(myModel);
+
+            //var CID = User.Identity.GetUserId();
+            //db.Order.Where(x => x.CustomerId == Id).ToList();
+
         }
 
         // GET: Order/Details/5

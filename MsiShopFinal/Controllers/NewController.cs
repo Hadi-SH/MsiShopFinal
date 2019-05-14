@@ -14,7 +14,14 @@ namespace MsiShopFinal.Controllers
         public ActionResult Index()
         {
             var myModel = db.New.ToList();
-            return View(myModel);
+
+
+
+            if (User.IsInRole("CanManageProducts"))
+            {
+                return View("AdminIndex", myModel);
+            }
+            return View("Index", myModel);
         }
 
         // GET: New/Details/5
