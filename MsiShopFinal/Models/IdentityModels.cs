@@ -28,6 +28,7 @@ namespace MsiShopFinal.Models
         public DbSet<SpecialOffers> SpecialOffer { get; set; }
         public DbSet<Titles> Title { get; set; }
         public DbSet<Prods> Prod { get; set; }
+        public DbSet<NOrders> NOrder { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

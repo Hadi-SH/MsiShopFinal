@@ -1,18 +1,23 @@
 ﻿@model IEnumerable<MsiShopFinal.Models.Prods>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Index2";
 }
 
-<h2>Index</h2>
+<h2>Index2</h2>
 
+
+<p>
+    to see prices plz login
+</p>
+
+<p>
+    @Html.ActionLink("Login to view Prices", "Account.Login")
+</p>
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Specifications)
@@ -35,9 +40,6 @@
             @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.Specifications)
         </td>
         <td>
@@ -50,12 +52,16 @@
             @Html.DisplayFor(modelItem => item.CategoryName)
         </td>
         <td>
-            @Html.ActionLink("Buy", "Buy", new { id = item.SerialNumber })
-        </td>
-        <td>
-            @Html.ActionLink("Details", "Details", new { id = item.SerialNumber })
+            @Html.ActionLink("Edit", "Edit", new { id=item.SerialNumber }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SerialNumber }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SerialNumber })
         </td>
     </tr>
 }
+
+
+<p>
+    to see prices plz login
+</p>
 
 </table>

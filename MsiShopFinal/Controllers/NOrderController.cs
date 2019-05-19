@@ -7,69 +7,56 @@ using System.Web.Mvc;
 
 namespace MsiShopFinal.Controllers
 {
-    public class ProdController : Controller
+    [Authorize]
+    public class NOrderController : Controller
     {
+        // GET: NOrder
         private ApplicationDbContext db = new ApplicationDbContext();
-        
-        // GET: prod
-        [AllowAnonymous]
-        public  ActionResult Index2()
-        {
-            var myModel = db.Prod.ToList();
-            return View("Index2", myModel);
-        }
-
-
-        // GET: prod
-        [Authorize]
         public ActionResult Index()
         {
-            var myModel = db.Prod.ToList();
+            var myModel = db.NOrder.ToList();
+
+
             if (User.IsInRole("CanManageProducts"))
             {
-                return View("Index", myModel);
+                return View("AdminIndex", myModel);
             }
-            if (User.IsInRole("Reseller"))
-            {
-                return View("ResIndex", myModel);
-            }
-            return View("CustIndex", myModel);
+            return View("Index", myModel);
         }
 
-        // GET: prod/Details/5
+        // GET: NOrder/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: prod/Create
+        // GET: NOrder/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: prod/Create
+        // POST: NOrder/Create
         [HttpPost]
-        [Authorize]
-        public ActionResult Create(Prods Prod)
+        public ActionResult Create(NOrders NOrder)
         {
             if (ModelState.IsValid)
             {
-                db.Prod.Add(Prod);
+                db.NOrder.Add(NOrder);
                 db.SaveChanges();
 
-                return RedirectToAction("Index", "Prod");
+                return RedirectToAction("Index", "Product");
             }
             else return View();
         }
 
-        // GET: prod/Edit/5
+        // GET: NOrder/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: prod/Edit/5
+        // POST: NOrder/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -85,13 +72,13 @@ namespace MsiShopFinal.Controllers
             }
         }
 
-        // GET: prod/Delete/5
+        // GET: NOrder/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: prod/Delete/5
+        // POST: NOrder/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

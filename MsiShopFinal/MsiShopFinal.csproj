@@ -173,6 +173,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\NewController.cs" />
+    <Compile Include="Controllers\NOrderController.cs" />
     <Compile Include="Controllers\prodController.cs" />
     <Compile Include="Controllers\ResellerController.cs" />
     <Compile Include="Controllers\SpecialOfferController.cs" />
@@ -300,8 +301,17 @@
     <Compile Include="Migrations\201905191624451_init2.Designer.cs">
       <DependentUpon>201905191624451_init2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905191637180_fix.cs" />
+    <Compile Include="Migrations\201905191637180_fix.Designer.cs">
+      <DependentUpon>201905191637180_fix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905191640547_NOrder.cs" />
+    <Compile Include="Migrations\201905191640547_NOrder.Designer.cs">
+      <DependentUpon>201905191640547_NOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\NOrder.cs" />
     <Compile Include="Models\Prods.cs" />
     <Compile Include="Models\Customers.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -393,6 +403,10 @@
     <Content Include="Views\SpecialOffer\Create.cshtml" />
     <Content Include="Views\New\AdminIndex.cshtml" />
     <Content Include="Views\SpecialOffer\ReadOnlyList.cshtml" />
+    <Content Include="Views\NOrder\Index.cshtml" />
+    <Content Include="Views\NOrder\Create.cshtml" />
+    <Content Include="Views\NOrder\AdminIndex.cshtml" />
+    <Content Include="Views\prod\Index2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -502,6 +516,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905191624451_init2.resx">
       <DependentUpon>201905191624451_init2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905191637180_fix.resx">
+      <DependentUpon>201905191637180_fix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905191640547_NOrder.resx">
+      <DependentUpon>201905191640547_NOrder.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
