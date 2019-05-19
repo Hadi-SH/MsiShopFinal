@@ -7,15 +7,17 @@ using System.Web.Mvc;
 
 namespace MsiShopFinal.Controllers
 {
-    [Authorize]
-    public class prodController : Controller
+    public class ProdController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         // GET: prod
         public ActionResult Index()
         {
             var myModel = db.Prod.ToList();
-
+            if (User.IsInRole("CanManageProducts"))
+            {
+                return View("Index", myModel);
+            }
             if (User.IsInRole("Reseller"))
             {
                 return View("ResIndex", myModel);
@@ -39,13 +41,13 @@ namespace MsiShopFinal.Controllers
         [HttpPost]
         public ActionResult Create(Prods Prod)
         {
-                if (ModelState.IsValid)
-                {
-                    db.Prod.Add(Prod);
-                    db.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                db.Prod.Add(Prod);
+                db.SaveChanges();
 
-                    return RedirectToAction("Index", "Prod");
-                }
+                return RedirectToAction("Index", "Prod");
+            }
             else return View();
         }
 

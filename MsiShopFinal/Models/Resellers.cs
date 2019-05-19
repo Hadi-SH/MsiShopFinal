@@ -18,6 +18,9 @@ namespace MsiShopFinal.Models
         [Display(Name = "Store Phone")]
         public string StorePhone { get; set; }
         [Required]
+        [Display(Name = "Store Country")]
+        public string StoreCountry { get; set; }
+        [Required]
         [Display(Name = "Store Location")]
         public string StoreLocation { get; set; }
         [Required]

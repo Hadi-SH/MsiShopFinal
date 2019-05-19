@@ -173,9 +173,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\NewController.cs" />
-    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\prodController.cs" />
-    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ResellerController.cs" />
     <Compile Include="Controllers\SpecialOfferController.cs" />
     <Compile Include="Controllers\TitleController.cs" />
@@ -282,6 +280,26 @@
     <Compile Include="Migrations\201905141946150_FixingSOandNews.Designer.cs">
       <DependentUpon>201905141946150_FixingSOandNews.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905142235332_CountryToReseller.cs" />
+    <Compile Include="Migrations\201905142235332_CountryToReseller.Designer.cs">
+      <DependentUpon>201905142235332_CountryToReseller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905142249462_CountryToReseller1.cs" />
+    <Compile Include="Migrations\201905142249462_CountryToReseller1.Designer.cs">
+      <DependentUpon>201905142249462_CountryToReseller1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905191517510_fixingOrder.cs" />
+    <Compile Include="Migrations\201905191517510_fixingOrder.Designer.cs">
+      <DependentUpon>201905191517510_fixingOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905191519202_fixingOrder2.cs" />
+    <Compile Include="Migrations\201905191519202_fixingOrder2.Designer.cs">
+      <DependentUpon>201905191519202_fixingOrder2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905191624451_init2.cs" />
+    <Compile Include="Migrations\201905191624451_init2.Designer.cs">
+      <DependentUpon>201905191624451_init2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Prods.cs" />
@@ -289,7 +307,6 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\News.cs" />
-    <Compile Include="Models\Orders.cs" />
     <Compile Include="Models\Products.cs" />
     <Compile Include="Models\Resellers.cs" />
     <Compile Include="Models\SpecialOffers.cs" />
@@ -358,8 +375,6 @@
     <Content Include="Views\Customer\Index.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Category\Create.cshtml" />
-    <Content Include="Views\Order\Index.cshtml" />
-    <Content Include="Views\Order\Create.cshtml" />
     <Content Include="Views\Reseller\Index.cshtml" />
     <Content Include="Views\Reseller\Create.cshtml" />
     <Content Include="Views\Title\Index.cshtml" />
@@ -472,6 +487,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905141946150_FixingSOandNews.resx">
       <DependentUpon>201905141946150_FixingSOandNews.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905142235332_CountryToReseller.resx">
+      <DependentUpon>201905142235332_CountryToReseller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905142249462_CountryToReseller1.resx">
+      <DependentUpon>201905142249462_CountryToReseller1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905191517510_fixingOrder.resx">
+      <DependentUpon>201905191517510_fixingOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905191519202_fixingOrder2.resx">
+      <DependentUpon>201905191519202_fixingOrder2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905191624451_init2.resx">
+      <DependentUpon>201905191624451_init2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

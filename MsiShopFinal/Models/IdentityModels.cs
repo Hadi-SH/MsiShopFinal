@@ -23,7 +23,6 @@ namespace MsiShopFinal.Models
         public DbSet<Customers> Customer { get; set; }
         public DbSet<Categorys> Category { get; set; }
         public DbSet<News> New { get; set; }
-        public DbSet<Orders> Order { get; set; }
         public DbSet<Products> Product { get; set; }
         public DbSet<Resellers> Reseller { get; set; }
         public DbSet<SpecialOffers> SpecialOffer { get; set; }

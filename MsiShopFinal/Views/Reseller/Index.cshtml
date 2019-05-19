@@ -21,6 +21,9 @@
             @Html.DisplayNameFor(model => model.StorePhone)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.StoreCountry)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.StoreLocation)
         </th>
         <th>
@@ -47,6 +50,9 @@
             @Html.DisplayFor(modelItem => item.StorePhone)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.StoreCountry)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.StoreLocation)
         </td>
         <td>
@@ -59,9 +65,9 @@
             @Html.DisplayFor(modelItem => item.StoreEmail)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
         </td>
     </tr>
 }
