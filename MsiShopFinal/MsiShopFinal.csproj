@@ -357,7 +357,7 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_Layout2.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -407,10 +407,12 @@
     <Content Include="Views\NOrder\Create.cshtml" />
     <Content Include="Views\NOrder\AdminIndex.cshtml" />
     <Content Include="Views\prod\Index2.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Images\" />
+    <Folder Include="Content\Images\" />
+    <Folder Include="Content\SlideImages\" />
     <Folder Include="User\" />
   </ItemGroup>
   <ItemGroup>
