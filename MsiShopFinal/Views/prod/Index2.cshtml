@@ -52,9 +52,9 @@
             @Html.DisplayFor(modelItem => item.CategoryName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.SerialNumber }, new { @class = "btn btn-primary btn-block" }) |
-            @Html.ActionLink("Details", "Details", new { id = item.SerialNumber }, new { @class = "btn btn-primary btn-block" }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.SerialNumber }, new { @class = "btn btn-primary btn-block" })
+            @Html.ActionLink("Edit", "Edit", new { id = item.SerialNumber }) |
+            @Html.ActionLink("Details", "Details", new { id = item.SerialNumber }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.SerialNumber })
         </td>
     </tr>
 }
