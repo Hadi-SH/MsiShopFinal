@@ -309,6 +309,10 @@
     <Compile Include="Migrations\201905191640547_NOrder.Designer.cs">
       <DependentUpon>201905191640547_NOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905212207461_prodname2prodSN-Norder.cs" />
+    <Compile Include="Migrations\201905212207461_prodname2prodSN-Norder.Designer.cs">
+      <DependentUpon>201905212207461_prodname2prodSN-Norder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\NOrder.cs" />
@@ -357,7 +361,7 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout2.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -400,14 +404,14 @@
     <Content Include="Views\New\Index.cshtml" />
     <Content Include="Views\New\Create.cshtml" />
     <Content Include="Views\SpecialOffer\Index.cshtml" />
-    <Content Include="Views\SpecialOffer\Create.cshtml" />
     <Content Include="Views\New\AdminIndex.cshtml" />
     <Content Include="Views\SpecialOffer\ReadOnlyList.cshtml" />
     <Content Include="Views\NOrder\Index.cshtml" />
     <Content Include="Views\NOrder\Create.cshtml" />
     <Content Include="Views\NOrder\AdminIndex.cshtml" />
     <Content Include="Views\prod\Index2.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_LayoutMain.cshtml" />
+    <Content Include="Views\SpecialOffer\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -524,6 +528,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905191640547_NOrder.resx">
       <DependentUpon>201905191640547_NOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905212207461_prodname2prodSN-Norder.resx">
+      <DependentUpon>201905212207461_prodname2prodSN-Norder.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

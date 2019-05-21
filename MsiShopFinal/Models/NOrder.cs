@@ -13,6 +13,6 @@ namespace MsiShopFinal.Models
         public Resellers Resellers { get; set; }
         public int ResellerId { get; set; }
         public Prods Prods { get; set; }
-        public string ProdName { get; set; }
+        public string ProdSerialNumber { get; set; }
     }
 }

@@ -50,7 +50,7 @@
             @Html.DisplayFor(modelItem => item.CategoryName)
         </td>
         <td>
-            @Html.ActionLink("Buy", "Buy", new { id = item.SerialNumber })
+            @Html.ActionLink("Buy", "Create","NOrder", new { id = item.SerialNumber }, new { @class = "btn btn-primary btn-block" })
         </td>
     </tr>
 }

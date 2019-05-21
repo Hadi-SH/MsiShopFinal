@@ -36,6 +36,16 @@ namespace MsiShopFinal.Controllers
             return View("CustIndex", myModel);
         }
 
+        //public ActionResult Buy(string serial)
+        //{
+
+
+
+
+        //    // 
+        //   return RedirectToAction("CreateOrder", "NOrder",serial);
+
+        //}
         // GET: prod/Details/5
         public ActionResult Details(int id)
         {
