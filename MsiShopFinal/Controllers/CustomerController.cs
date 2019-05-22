@@ -1,4 +1,6 @@
-﻿using MsiShopFinal.Models;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using MsiShopFinal.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,16 +41,23 @@ namespace MsiShopFinal.Controllers
 
         // POST: Customer/Create
         [HttpPost]
-        public ActionResult Create(Customers Customer)
+        public async System.Threading.Tasks.Task<ActionResult> CreateAsync(Customers Customer)
         {
             if (ModelState.IsValid)
             {
                 db.Customer.Add(Customer);
                 db.SaveChanges();
 
+                //roles
+                var roleStore = new RoleStore<IdentityRole>(new ApplicationDbContext());
+                var roleManager = new RoleManager<IdentityRole>(roleStore);
+                await roleManager.CreateAsync(new IdentityRole("Customer"));
+                await UserManager.AddToRoleAsync(Customer.Id, "Customer");
+
                 return RedirectToAction("Index", "Customer");
             }
             else return View();
+
         }
 
         // GET: Customer/Edit/5
