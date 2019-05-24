@@ -17,11 +17,12 @@ namespace MsiShopFinal.Controllers
             var myModel = db.SpecialOffer.ToList();
 
 
-            if (User.IsInRole("CanManageProducts"))
-            {
-                return View("Index", myModel);
-            }
-            return View("ReadOnlyList", myModel);
+            //if (User.IsInRole("CanManageProducts"))
+            //{
+            //    return View("Index", myModel);
+            //}
+            //return View("ReadOnlyList", myModel);
+            return View("Index", myModel);
         }
 
         // GET: SpecialOffer/Details/5

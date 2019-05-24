@@ -11,7 +11,7 @@ namespace MsiShopFinal.Controllers
     public class ProdController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-        
+
         //// GET: prod
         //[AllowAnonymous]
         //public  ActionResult Index2()
@@ -25,17 +25,18 @@ namespace MsiShopFinal.Controllers
         public ActionResult Index()
         {
             var myModel = db.Prod.ToList();
+
             if (User.IsInRole("CanManageProducts"))
             {
                 return View("Index", myModel);
             }
             else if (User.IsInRole("IsReseller"))
             {
-                return View("ResIndex", myModel);
+                return View("List", myModel);
             }
             else if (User.IsInRole("IsCustomer"))
             {
-                return View("CustIndex", myModel);
+                return View("List", myModel);
             }
             return View("Index2", myModel);
         }

@@ -1,26 +1,18 @@
 ﻿@model IEnumerable<MsiShopFinal.Models.Prods>
 
 @{
-    ViewBag.Title = "Index2";
+    ViewBag.Title = "Index";
 }
 
-<h2>Our Products</h2>
-
-<h4>
-    log in as customer or reseller to view prices
-</h4>
-    <div class="col-md-4 col-md-offset-2">
-        @Html.ActionLink("Register as Reseller", "RegisterRes", "Account", null, new { @class = "btn btn-danger btn-block" })
-    </div>
-    <div class="col-md-4">
-        @Html.ActionLink("Register as Customer", "RegisterCust", "Account", null, new { @class = "btn btn-danger btn-block" })
-        <br />
-    </div>
+<h2>Index</h2>
 
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Specifications)
@@ -42,6 +34,18 @@
         <td>
             @Html.DisplayFor(modelItem => item.Name)
         </td>
+        @if (User.IsInRole("IsReseller"))
+        {
+            <td>
+                @(item.Price - (item.Price * 10 / 100))
+            </td>
+        }
+        else
+        {
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+        }
         <td>
             @Html.DisplayFor(modelItem => item.Specifications)
         </td>
@@ -53,6 +57,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CategoryName)
+        </td>
+        <td>
+            @Html.ActionLink("Buy", "Create", "NOrder", new { id = item.SerialNumber }, new { @class = "btn btn-primary btn-block" })
         </td>
     </tr>
 }

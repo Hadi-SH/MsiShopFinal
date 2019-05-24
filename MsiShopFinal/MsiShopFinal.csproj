@@ -428,6 +428,8 @@
     <Content Include="Views\SpecialOffer\Create.cshtml" />
     <Content Include="Views\Account\RegisterRes.cshtml" />
     <Content Include="Views\Account\RegisterCust.cshtml" />
+    <Content Include="Views\prod\List.cshtml" />
+    <Content Include="Views\Customer\ROL.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -17,11 +17,12 @@ namespace MsiShopFinal.Controllers
             var myModel = db.NOrder.ToList();
 
 
-            if (User.IsInRole("CanManageProducts"))
-            {
-                return View("AdminIndex", myModel);
-            }
-            return View("Index", myModel);
+            //if (User.IsInRole("CanManageProducts"))
+            //{
+            //    return View("AdminIndex", myModel);
+            //}
+            //return View("Index", myModel);
+            return View("AdminIndex", myModel);
         }
 
         // GET: NOrder/Details/5

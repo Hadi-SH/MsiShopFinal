@@ -11,17 +11,19 @@ namespace MsiShopFinal.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         // GET: New
+        [AllowAnonymous]
         public ActionResult Index()
         {
             var myModel = db.New.ToList();
 
 
 
-            if (User.IsInRole("CanManageProducts"))
-            {
-                return View("AdminIndex", myModel);
-            }
-            return View("Index", myModel);
+            //if (User.IsInRole("CanManageProducts"))
+            //{
+            //    return View("AdminIndex", myModel);
+            //}
+            //return View("Index", myModel);
+            return View("AdminIndex", myModel);
         }
 
         // GET: New/Details/5
@@ -38,6 +40,7 @@ namespace MsiShopFinal.Controllers
 
         // POST: New/Create
         [HttpPost]
+        [Authorize]
         public ActionResult Create(News New)
         {
             if (ModelState.IsValid)

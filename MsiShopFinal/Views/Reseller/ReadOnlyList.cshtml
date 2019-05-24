@@ -6,6 +6,10 @@
 
 <h2>Index</h2>
 
+<p>
+    @Html.ActionLink("Register as Reseller", "RegisterRes", "Account")
+</p>
+
 <table class="table">
     <tr>
         <th>
@@ -22,12 +26,6 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.StoreLocation)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MostBuyableBrand)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NetWorthPerMonth)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.StoreEmail)
@@ -51,12 +49,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.StoreLocation)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MostBuyableBrand)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NetWorthPerMonth)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.StoreEmail)

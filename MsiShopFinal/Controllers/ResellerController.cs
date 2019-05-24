@@ -23,7 +23,15 @@ namespace MsiShopFinal.Controllers
             {
                 return View("Index", myModel);
             }
-            return View("ReadOnlyList", myModel);
+            else if (User.IsInRole("IsReseller"))
+            {
+                return View("Index", myModel);
+            }
+            else if (User.IsInRole("IsCustomer"))
+            {
+                return View("ReadOnlyList", myModel);
+            }
+                return View("ReadOnlyList", myModel);
         }
 
         // GET: Reseller/Details/5
@@ -40,7 +48,7 @@ namespace MsiShopFinal.Controllers
 
         // POST: Reseller/Create
         [HttpPost]
-        public async System.Threading.Tasks.Task<ActionResult> CreateAsync(Resellers Reseller)
+        public ActionResult Create(Resellers Reseller)
         {
             if (ModelState.IsValid)
             {
@@ -48,10 +56,10 @@ namespace MsiShopFinal.Controllers
                 db.SaveChanges();
 
                 //roles
-                var roleStore = new RoleStore<IdentityRole>(new ApplicationDbContext());
-                var roleManager = new RoleManager<IdentityRole>(roleStore);
-                await roleManager.CreateAsync(new IdentityRole("IsReseller"));
-                await UserManager.AddToRoleAsync(Reseller.ResellerId, "IsReseller");
+                //var roleStore = new RoleStore<IdentityRole>(new ApplicationDbContext());
+                //var roleManager = new RoleManager<IdentityRole>(roleStore);
+                //await roleManager.CreateAsync(new IdentityRole("IsReseller"));
+                //await UserManager.AddToRoleAsync(Reseller.ResellerId, "IsReseller");
 
                 return RedirectToAction("Index", "Reseller");
             }

@@ -19,11 +19,12 @@ namespace MsiShopFinal.Controllers
                 var myModel = db.Title.ToList();
 
 
-                if (User.IsInRole("CanManageProducts"))
-                {
-                    return View("Index", myModel);
-                }
-                return View("Prvlgs", myModel);
+                //if (User.IsInRole("CanManageProducts"))
+                //{
+                //    return View("Index", myModel);
+                //}
+                //return View("Prvlgs", myModel);
+                return View("Index", myModel);
             }
         }
 

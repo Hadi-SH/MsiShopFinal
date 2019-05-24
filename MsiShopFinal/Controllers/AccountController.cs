@@ -173,7 +173,7 @@ namespace MsiShopFinal.Controllers
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-
+                    await UserManager.AddToRoleAsync(user.Id, "IsCustomer");
                     Customers myCust = new Customers()
                     {
                         CustomerId = user.Id,
@@ -219,7 +219,7 @@ namespace MsiShopFinal.Controllers
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-
+                    await UserManager.AddToRoleAsync(user.Id, "IsReseller");
                     Resellers myRes = new Resellers()
                     {
                         ResellerId = user.Id,
@@ -261,10 +261,10 @@ namespace MsiShopFinal.Controllers
                 {
 
                     //roles
-                    //var roleStore = new RoleStore<IdentityRole>(new ApplicationDbContext());
-                    //var roleManager = new RoleManager<IdentityRole>(roleStore);
-                    //await roleManager.CreateAsync(new IdentityRole("CanManageProducts"));
-                    //await UserManager.AddToRoleAsync(user.Id, "canManageProducts");
+                    var roleStore = new RoleStore<IdentityRole>(new ApplicationDbContext());
+                    var roleManager = new RoleManager<IdentityRole>(roleStore);
+                    await roleManager.CreateAsync(new IdentityRole("CanManageProducts"));
+                    await UserManager.AddToRoleAsync(user.Id, "canManageProducts");
 
 
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);

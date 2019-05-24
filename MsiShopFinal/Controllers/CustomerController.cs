@@ -9,22 +9,30 @@ using System.Web.Mvc;
 
 namespace MsiShopFinal.Controllers
 {
-    [Authorize]
     public class CustomerController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         // GET: Customer
+        [AllowAnonymous]
         public ActionResult Index()
         {
             var myModel = db.Customer.ToList();
-            
+
 
 
             if (User.IsInRole("CanManageProducts"))
             {
-                return View("Index",myModel);
+                return View("Index", myModel);
             }
-            return View("Create");
+            else if (User.IsInRole("IsCustomer"))
+            {
+                return View("Index", myModel);
+            }
+            else if (User.IsInRole("IsResseler"))
+            {
+                return View("ROL", myModel);
+            }
+            return View("ROL", myModel);
         }
 
         // GET: Customer/Details/5
@@ -41,7 +49,8 @@ namespace MsiShopFinal.Controllers
 
         // POST: Customer/Create
         [HttpPost]
-        public async System.Threading.Tasks.Task<ActionResult> CreateAsync(Customers Customer)
+        [Authorize]
+        public ActionResult Create(Customers Customer)
         {
             if (ModelState.IsValid)
             {
@@ -49,10 +58,10 @@ namespace MsiShopFinal.Controllers
                 db.SaveChanges();
 
                 //roles
-                var roleStore = new RoleStore<IdentityRole>(new ApplicationDbContext());
-                var roleManager = new RoleManager<IdentityRole>(roleStore);
-                await roleManager.CreateAsync(new IdentityRole("Customer"));
-                await UserManager.AddToRoleAsync(Customer.CustomerId, "Customer");
+                //var roleStore = new RoleStore<IdentityRole>(new ApplicationDbContext());
+                //var roleManager = new RoleManager<IdentityRole>(roleStore);
+                //await roleManager.CreateAsync(new IdentityRole("Customer"));
+                //await UserManager.AddToRoleAsync(Customer.CustomerId, "Customer");
 
                 return RedirectToAction("Index", "Customer");
             }
