@@ -185,8 +185,6 @@ namespace MsiShopFinal.Controllers
                         Country = model.Country,
                         DetailedAddress = model.DetailedAddress,
                         SpentTimeOnGaming = model.SpentTimeOnGaming,
-                        
-
                         TitleName = model.TitleName
                     };
                     db.Customer.Add(myCust);
