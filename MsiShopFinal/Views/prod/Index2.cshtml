@@ -6,13 +6,15 @@
 
 <h2>Index2</h2>
 
-
 <p>
-    to see prices plz login
-</p>
-
-<p>
-    @Html.ActionLink("Login to view Prices", "Account.Login")
+    log in as customer or reseller to view prices
+    <div class="col-md-4 col-md-offset-2">
+        @Html.ActionLink("Register as Reseller", "RegisterRes", "Account", null, new { @class = "btn btn-primary btn-block" })
+    </div>
+    <div class="col-md-4">
+        @Html.ActionLink("Register as Customer", "RegisterCust", "Account", null, new { @class = "btn btn-danger btn-block" })
+        <br />
+    </div>
 </p>
 <table class="table">
     <tr>
@@ -43,7 +45,7 @@
             @Html.DisplayFor(modelItem => item.Specifications)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Image)
+            <img src="@item.Image" alt="" style=" width:100px ; height:100px">
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Buyable)
@@ -51,17 +53,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.CategoryName)
         </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.SerialNumber }) |
-            @Html.ActionLink("Details", "Details", new { id = item.SerialNumber }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.SerialNumber })
-        </td>
     </tr>
 }
-
-
-<p>
-    to see prices plz login
-</p>
 
 </table>

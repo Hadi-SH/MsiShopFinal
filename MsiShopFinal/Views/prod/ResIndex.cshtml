@@ -34,14 +34,27 @@
         <td>
             @Html.DisplayFor(modelItem => item.Name)
         </td>
+
         <td>
-            @Html.DisplayFor(modelItem => item.Price)
+            @(item.Price - (item.Price * 10 / 100))
         </td>
+        @*<td>
+            @if (User.IsInRole("IsReseller"))
+            {
+                @(item.Price * item.Price).ToString();
+            }
+
+            else
+            {
+                @(item.Price * item.Price).ToString();
+            }
+
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.Specifications)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Image)
+            <img src="@item.Image" alt="" style=" width:100px ; height:100px">
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Buyable)

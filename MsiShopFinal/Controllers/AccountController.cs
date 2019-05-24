@@ -14,7 +14,6 @@ using RegisteringUsers.ViewModels;
 
 namespace MsiShopFinal.Controllers
 {
-    [Authorize]
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
@@ -150,11 +149,8 @@ namespace MsiShopFinal.Controllers
         public ActionResult RegisterCust()
         {
             ApplicationDbContext db = new ApplicationDbContext();
-            var temp = db.Title.ToList();
-            CustViewModel model = new CustViewModel()
-            {
-                //TitleName = temp
-            };
+            CustViewModel model = new CustViewModel();
+            model.Titles = db.Title.ToList();
             return View(model);
         }
 
@@ -180,7 +176,7 @@ namespace MsiShopFinal.Controllers
 
                     Customers myCust = new Customers()
                     {
-                        //Id = model.Id,
+                        CustomerId = user.Id,
                         Name = model.Name,
                         DOB = model.DOB,
                         Phone = model.Phone,
@@ -189,6 +185,7 @@ namespace MsiShopFinal.Controllers
                         Country = model.Country,
                         DetailedAddress = model.DetailedAddress,
                         SpentTimeOnGaming = model.SpentTimeOnGaming,
+                        
 
                         TitleName = model.TitleName
                     };
@@ -209,43 +206,45 @@ namespace MsiShopFinal.Controllers
             return View(model);
         }
 
-        //[HttpPost]
-        //[AllowAnonymous]
-        //[ValidateAntiForgeryToken]
-        //public async Task<ActionResult> RegisterRes(ResViewModel model)
-        //{
-        //    ApplicationDbContext db = new ApplicationDbContext();
-        //    if (ModelState.IsValid)
-        //    {
-        //        var user = new ApplicationUser { UserName = model.StoreEmail, Email = model.StoreEmail };
-        //        var result = await UserManager.CreateAsync(user, model.Password);
-        //        if (result.Succeeded)
-        //        {
-        //            await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> RegisterRes(ResViewModel model)
+        {
+            ApplicationDbContext db = new ApplicationDbContext();
+            if (ModelState.IsValid)
+            {
+                var user = new ApplicationUser { UserName = model.StoreEmail, Email = model.StoreEmail };
+                var result = await UserManager.CreateAsync(user, model.Password);
+                if (result.Succeeded)
+                {
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
-        //            Resellers myRes = new Resellers()
-        //            {
-        //                //Id = model.Id,
-        //                Name = model.Name,
-        //                StoreName = model.StoreName,
-        //                StorePhone = model.StorePhone,
-        //                StoreLocation = model.StoreLocation,
-        //                MostBuyableBrand = model.MostBuyableBrand,
-        //                NetWorthPerMonth = model.NetWorthPerMonth
-        //            };
-        //            db.Reseller.Add(myRes);
-        //            db.SaveChanges();
-        //            // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
-        //            // Send an email with this link
-        //            // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-        //            // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-        //            // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                    Resellers myRes = new Resellers()
+                    {
+                        ResellerId = user.Id,
+                        Name = model.Name,
+                        StoreName = model.StoreName,
+                        StorePhone = model.StorePhone,
+                        StoreCountry = model.StoreCountry,
+                        StoreLocation = model.StoreLocation,
+                        MostBuyableBrand = model.MostBuyableBrand,
+                        NetWorthPerMonth = model.NetWorthPerMonth
+                    };
+                    db.Reseller.Add(myRes);
+                    db.SaveChanges();
+                    // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
+                    // Send an email with this link
+                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-        //            return RedirectToAction("Index", "Home");
-        //        }
-        //        AddErrors(result);
-        //    }
-        //}
+                    return RedirectToAction("Index", "Home");
+                }
+                AddErrors(result);
+            }
+            return View(model);
+        }
 
         //
         // POST: /Account/Register

@@ -10,7 +10,8 @@
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-    
+    if (User.IsInRole("CanManageProducts"))
+    {
     <div class="form-horizontal">
         <h4>Categorys</h4>
         <hr />
@@ -29,6 +30,11 @@
             </div>
         </div>
     </div>
+    }
+    else
+    {
+        <h2>You Dont Have Previllage To View This Page</h2>
+    }
 }
 
 <div>

@@ -52,7 +52,7 @@ namespace MsiShopFinal.Controllers
                 var roleStore = new RoleStore<IdentityRole>(new ApplicationDbContext());
                 var roleManager = new RoleManager<IdentityRole>(roleStore);
                 await roleManager.CreateAsync(new IdentityRole("Customer"));
-                await UserManager.AddToRoleAsync(Customer.Id, "Customer");
+                await UserManager.AddToRoleAsync(Customer.CustomerId, "Customer");
 
                 return RedirectToAction("Index", "Customer");
             }

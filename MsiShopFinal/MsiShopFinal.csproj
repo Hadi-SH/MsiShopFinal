@@ -313,6 +313,18 @@
     <Compile Include="Migrations\201905212207461_prodname2prodSN-Norder.Designer.cs">
       <DependentUpon>201905212207461_prodname2prodSN-Norder.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905231418086_changeResellersKey.cs" />
+    <Compile Include="Migrations\201905231418086_changeResellersKey.Designer.cs">
+      <DependentUpon>201905231418086_changeResellersKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905231922024_ChangeCustomerKey.cs" />
+    <Compile Include="Migrations\201905231922024_ChangeCustomerKey.Designer.cs">
+      <DependentUpon>201905231922024_ChangeCustomerKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905231956202_RemovingResPass.cs" />
+    <Compile Include="Migrations\201905231956202_RemovingResPass.Designer.cs">
+      <DependentUpon>201905231956202_RemovingResPass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\NOrder.cs" />
@@ -535,6 +547,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905212207461_prodname2prodSN-Norder.resx">
       <DependentUpon>201905212207461_prodname2prodSN-Norder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905231418086_changeResellersKey.resx">
+      <DependentUpon>201905231418086_changeResellersKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905231922024_ChangeCustomerKey.resx">
+      <DependentUpon>201905231922024_ChangeCustomerKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905231956202_RemovingResPass.resx">
+      <DependentUpon>201905231956202_RemovingResPass.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

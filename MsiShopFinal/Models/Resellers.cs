@@ -8,7 +8,8 @@ namespace MsiShopFinal.Models
 {
     public class Resellers
     {
-        public int Id { get; set; }
+        [Key]
+        public string ResellerId { get; set; }
         [Required]
         public string Name { get; set; }
         [Required]
@@ -32,7 +33,5 @@ namespace MsiShopFinal.Models
         [Required]
         [Display(Name = "Store Email")]
         public string StoreEmail { get; set; }
-        [Required]
-        public string Password { get; set; }
     }
 }

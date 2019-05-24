@@ -7,21 +7,21 @@ using System.Web.Mvc;
 
 namespace MsiShopFinal.Controllers
 {
+    [AllowAnonymous]
     public class ProdController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         
-        // GET: prod
-        [AllowAnonymous]
-        public  ActionResult Index2()
-        {
-            var myModel = db.Prod.ToList();
-            return View("Index2", myModel);
-        }
+        //// GET: prod
+        //[AllowAnonymous]
+        //public  ActionResult Index2()
+        //{
+        //    var myModel = db.Prod.ToList();
+        //    return View("Index2", myModel);
+        //}
 
 
         // GET: prod
-        [Authorize]
         public ActionResult Index()
         {
             var myModel = db.Prod.ToList();
@@ -29,11 +29,15 @@ namespace MsiShopFinal.Controllers
             {
                 return View("Index", myModel);
             }
-            if (User.IsInRole("Reseller"))
+            else if (User.IsInRole("IsReseller"))
             {
                 return View("ResIndex", myModel);
             }
-            return View("CustIndex", myModel);
+            else if (User.IsInRole("IsCustomer"))
+            {
+                return View("CustIndex", myModel);
+            }
+            return View("Index2", myModel);
         }
 
         //public ActionResult Buy(string serial)
@@ -63,14 +67,14 @@ namespace MsiShopFinal.Controllers
         [Authorize]
         public ActionResult Create(Prods Prod)
         {
-            if (ModelState.IsValid)
-            {
-                db.Prod.Add(Prod);
-                db.SaveChanges();
+                if (ModelState.IsValid)
+                {
+                    db.Prod.Add(Prod);
+                    db.SaveChanges();
 
-                return RedirectToAction("Index", "Prod");
-            }
-            else return View();
+                    return RedirectToAction("Index", "Prod");
+                }
+                else return View();
         }
 
         // GET: prod/Edit/5

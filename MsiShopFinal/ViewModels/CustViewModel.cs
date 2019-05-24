@@ -25,7 +25,7 @@ namespace RegisteringUsers.ViewModels
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
-        public Titles Titles { get; set; }
+        public List<Titles> Titles { get; set; }
         public string TitleName { get; set; }
 
         public string Name { get; set; }

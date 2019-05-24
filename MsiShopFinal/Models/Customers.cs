@@ -8,7 +8,8 @@ namespace MsiShopFinal.Models
 {
     public class Customers
     {
-        public int Id { get; set; }
+        [Key]
+        public string CustomerId { get; set; }
         [Required]
         public string Name { get; set; }
         public DateTime DOB { get; set; }

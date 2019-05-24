@@ -10,7 +10,8 @@
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-    
+    if (User.IsInRole("CanManageProducts"))
+    {
     <div class="form-horizontal">
         <h4>Prods</h4>
         <hr />
@@ -79,6 +80,13 @@
             </div>
         </div>
     </div>
+    }
+    else
+    {
+        <p>
+            You Dont Have Specific Privilage to View This Page
+        </p>
+    }
 }
 
 <div>
