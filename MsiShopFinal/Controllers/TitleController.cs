@@ -29,8 +29,9 @@ namespace MsiShopFinal.Controllers
         }
 
         // GET: Title/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int Id)
         {
+            Titles Tit = db.Title.Find(Id);
             return View();
         }
 
@@ -57,6 +58,8 @@ namespace MsiShopFinal.Controllers
         // GET: Title/Edit/5
         public ActionResult Edit(int id)
         {
+            //Titles titlesE = new Titles();
+            //Titles titles = titlesE.Title.Singlee(titles => titles.Id == id);
             return View();
         }
 
@@ -86,16 +89,7 @@ namespace MsiShopFinal.Controllers
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction("Index");
         }
     }
 }
