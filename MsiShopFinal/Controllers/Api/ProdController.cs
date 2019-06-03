@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Data.Entity;
 
 
 namespace MsiShopFinal.Controllers.API
@@ -20,9 +21,14 @@ namespace MsiShopFinal.Controllers.API
         }
 
         // GET /api/prod
-        public IEnumerable<ProdsDto> GetProds()
+        public IHttpActionResult GetProds()
         {
-            return _context.Prod.ToList().Select(Mapper.Map<Prods, ProdsDto>);
+            var ProdsDto = _context.Prod
+                .Include(Models => Models.Categorys)
+                .ToList()
+                .Select(Mapper.Map<Prods, ProdsDto>);
+
+            return Ok(ProdsDto);
         }
 
         // GET /api/prod/1

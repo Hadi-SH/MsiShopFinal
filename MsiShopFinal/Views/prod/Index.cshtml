@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<MsiShopFinal.Models.Prods>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "IndTest";
 }
 
 <h2>Manage Products</h2>
@@ -9,62 +9,98 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Specifications)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Image)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Buyable)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CategoryName)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+<table id="prod" class="table table-bordered table-hover">
+    <thead>
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @(item.Price - (item.Price * 10 / 100))$
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Specifications)
-            </td>
-            <td>
-                <img src="@item.Image" alt="" style=" width:100px ; height:100px">
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Buyable)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CategoryName)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.SerialNumber }) |
-                @Html.ActionLink("Details", "Details", new { id = item.SerialNumber }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.SerialNumber })
-            </td>
-        </tr>
-    }
+            <th>Name</th>
+            <th>Price</th>
+            <th>SPrice</th>
+            <th>Specifications</th>
+            <th>Image</th>
+            <th>Buyable</th>
+            <th>CategoryName</th>
 
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var prods in Model)
+        {
+        <tr>
+            <td>@prods.Name</td>
+            <td>@prods.Price</td>
+            <td>@(prods.Price - (prods.Price * 10 / 100))$</td>
+            <td>@prods.Specifications</td>
+            <td><img src="@prods.Image" alt="" style=" width:100px ; height:100px"></td>
+            <td>@prods.Buyable</td>
+            <td>@prods.CategoryName</td>
+        </tr>
+        }
+    </tbody>
 </table>
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            var table = $("#prod").DataTable({;
+            ajax: {
+                url: "/api/prod",
+                    dataSrc: ""
+            },
+            columns: [
+                {
+                    data: "name",
+                },
+                //{
+                //    data: "name",
+                //    render: function (data, type, prods) {
+                //        return "<a href='/prod/edit/" + prods.name + "'>" + prods.name + "</a>";
+                //    }
+                //},
+                {
+                    data: "price"
+                },
+                {
+                    data: "price"
+                },
+                {
+                    data: "specifications"
+                },
+                {
+                    data: "image"
+                },
+                {
+                    data: "buyable"
+                },
+                {
+                    data: "category.name"
+                },
+                {
+                    data: "serialnumber",
+                    render: function (data) {
+                        return "<button class='btn-link js-delete' data-prods-serialnumber=" + data + ">Delete</button>";
+                    }
+                }
+
+            ]
+        });
+
+            $("#prod").on("click", ".js-delete", function () {
+                var button = $(this);
+
+                bootbox.confirm("Are you sure you want to delete this product?", function (result) {
+                    if (result) {
+                        $.ajax({
+                            url: "/api/prod/" + button.attr("data-prod-serialnumber"),
+                            method: "DELETE",
+                            success: function () {
+                                table.row(button.parents("tr")).remove().draw();
+                            }
+                        });
+                    }
+                });
+            });
+
+    });
+    </script>
+}
+

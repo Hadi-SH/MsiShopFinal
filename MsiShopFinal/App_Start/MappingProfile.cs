@@ -14,8 +14,6 @@ namespace MsiShopFinal.App_Start
         {
             Mapper.CreateMap<Prods, ProdsDto>();
             Mapper.CreateMap<ProdsDto, Prods>();
-
-
         }
     }
 }
