@@ -41,6 +41,24 @@ namespace MsiShopFinal.Controllers
             return View("Index2", myModel);
         }
 
+        //public ActionResult Index()
+        //{
+        //    List<Prods> myModel = new List<Prods>();
+        //    for (int i = 0; i < 10; i++)
+        //    {
+        //        myModel.Add(new Prods
+        //        {
+        //            SerialNumber = "SerialNumber " + i,
+        //            Name = "Name " + i,
+        //            Price = i,
+        //            Specifications = "Specification " + i,
+        //            Image = "img src=@prods.Image" + "style= width:100px ; height: 100px" + i,
+        //            CategoryName = "CategoryName" + i
+        //        });
+        //    }
+        //    return View(myModel);
+        //}
+
         //public ActionResult Buy(string serial)
         //{
 
