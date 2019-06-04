@@ -13,7 +13,6 @@ namespace MsiShopFinal.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         // GET: Customer
-        [AllowAnonymous]
         public ActionResult Index()
         {
             var myModel = db.Customer.ToList();
